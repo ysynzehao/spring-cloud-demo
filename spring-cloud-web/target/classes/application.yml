@@ -12,7 +12,7 @@ eureka:
 
 spring:
   application:
-    name: customer-client-service
+    name: user-client-service
 
 logging:
   level:

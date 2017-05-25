@@ -12,16 +12,14 @@ eureka:
       enabled: true
     lease:
       duration: 5
+      
+logging:
+  level:
+    org.exampledriven.eureka: DEBUG
 
 spring:
   application:
     name: user-service
-
-logging:
-  level:
-    org.exampledriven.eureka: DEBUG
-    
-spring:
   jpa:
     properties:
       hibernate:

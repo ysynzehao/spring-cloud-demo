@@ -2,22 +2,22 @@ package com.ysynzehao.spring.provide;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
-import com.ysynzehao.spring.provide.service.UserServiceFeignClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableWebMvc
-@EnableFeignClients(basePackageClasses = UserServiceFeignClient.class)
-@ComponentScan(basePackageClasses = UserServiceFeignClient.class)
-public class Application {
+@EnableJpaRepositories("com.ysynzehao.spring.dao")
+@EntityScan("com.ysynzehao.spring.base.entry")
+@ComponentScan(basePackages={"com.ysynzehao.spring"})
+public class ProvideApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ProvideApplication.class, args);
     }
 
 }

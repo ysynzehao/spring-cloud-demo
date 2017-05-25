@@ -3,6 +3,7 @@ package com.ysynzehao.spring.service;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,8 +18,8 @@ public interface UserService {
     public List<User> getUserList();
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST, produces = "application/json")
-    public User saveUser(User user);
+    public User saveUser(@RequestBody User user);
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces = "application/json")
-    public User getUser(@PathVariable(value = "id") long id);
+    public User getUser(@PathVariable(value = "id") Long id);
 }
